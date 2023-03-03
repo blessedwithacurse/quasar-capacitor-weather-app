@@ -15,7 +15,7 @@
               fill="rgba(255,204,0,1)"
             />
           </svg>
-          Weather
+          {{ $t('weather') }}
         </q-toolbar-title>
       </q-toolbar>
     </q-header>

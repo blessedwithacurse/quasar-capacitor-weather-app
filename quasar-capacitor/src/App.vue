@@ -11,26 +11,29 @@
           @click="switchTheme"
           toggle-color="primary"
           :options="[
-            { label: 'Light', value: 'light' },
-            { label: 'Dark', value: 'dark' },
+            { label: $t('light_theme'), value: 'light' },
+            { label: $t('dark_theme'), value: 'dark' },
           ]"
         />
       </div>
     </div>
+    <LanguageSwitcher />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import NavBar from './components/NavBar.vue';
 import FilterSelect from './components/Select.vue';
 import { useQuasar } from 'quasar';
+import LanguageSwitcher from './components/LanguageSwitcher.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     NavBar,
     FilterSelect,
+    LanguageSwitcher,
   },
   setup() {
     const $q = useQuasar();
@@ -42,6 +45,7 @@ export default defineComponent({
         $q.dark.set(false);
       }
     };
+
     return {
       model,
       switchTheme,
@@ -52,10 +56,11 @@ export default defineComponent({
 
 <style lang="scss">
 .container {
-  height: 100vh;
   .wrapper {
+    height: 30%;
     .btn-wrapper {
       margin: 16px;
+      display: flex;
     }
   }
 }

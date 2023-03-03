@@ -9,7 +9,7 @@
           v-model="model"
           use-input
           input-debounce="0"
-          label="Select City"
+          :label="$t('selectCity')"
           style="width: 250px"
           behavior="menu"
           @update:model-value="(val) => fetchWeather(val)"
@@ -60,8 +60,9 @@ export default defineComponent({
       ).then(async (response) => {
         const data = await response.json();
         update(() => {
-          options.value = data;
-          console.log(options.value);
+          if (response.status === 200) {
+            options.value = data;
+          }
         });
       });
     };
@@ -80,7 +81,6 @@ export default defineComponent({
           });
         }
       } catch (err) {
-        console.log(val);
         console.log('error', err);
       }
     };
@@ -98,9 +98,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped lang="scss">
-.select {
-  width: 300px;
-}
-</style>

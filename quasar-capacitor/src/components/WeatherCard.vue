@@ -2,24 +2,27 @@
   <q-card>
     <q-card-section class="card">
       <div class="locationWrapper">
-        <span>Current Weather</span>
         <h5 class="location">
           {{ cityName ? cityName + ', ' + country : '' }}
         </h5>
       </div>
       <div class="tempWrapper">
-        <p>{{ temp ? 'Temperature: ' + Math.round(temp) + 'C' : '' }}</p>
+        <p>{{ temp ? $t('temperature') + Math.round(temp) + 'C' : '' }}</p>
         <p>
           {{
-            temp ? 'Temperature: ' + Math.round(temp * (9 / 5) + 32) + 'F' : ''
+            temp
+              ? $t('temperature') + Math.round(temp * (9 / 5) + 32) + 'F'
+              : ''
           }}
         </p>
       </div>
       <p>
-        {{ humidity ? 'Humidity: ' + Math.round(humidity) + '%' : '' }}
+        {{ humidity ? $t('humidity') + Math.round(humidity) + '%' : '' }}
       </p>
       <p>
-        {{ feelsLike ? 'Feels Like: ' + Math.round(feelsLike) + 'C&deg;' : '' }}
+        {{
+          feelsLike ? $t('feels_like') + Math.round(feelsLike) + 'C&deg;' : ''
+        }}
       </p>
       <div class="iconWrapper" v-if="weather == 'Snow'">
         {{ weather }}<SnowIcon />
@@ -41,13 +44,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref, computed, watchEffect } from 'vue';
 import SnowIcon from '../../public/snowIcon.vue';
 import CloudIcon from '../../public/cloudIcon.vue';
 import RainIcon from '../../public/rainIcon.vue';
 import MistIcon from '../../public/mistIcon.vue';
 import ClearSkyIcon from '../../public/clearSkyIcon.vue';
-
 export default defineComponent({
   name: 'WeatherCard',
   components: {
