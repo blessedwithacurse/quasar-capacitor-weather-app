@@ -37,7 +37,7 @@
 import { defineComponent, reactive, ref } from 'vue';
 import WeatherCard from './WeatherCard.vue';
 
-const url_base_geocode = 'http://api.openweathermap.org/geo/1.0/';
+const url_base_geocode = 'https://api.openweathermap.org/geo/1.0/';
 const api_key = 'f370c52dafb902322d91b20d81c9442f';
 const url_base = 'https://api.openweathermap.org/data/2.5/';
 

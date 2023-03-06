@@ -8,4 +8,9 @@ export default {
   weather: 'Weather',
   selectCity: 'Select City',
   switchLanguage: ' Switch Language',
+  clear: 'Clear',
+  rain: 'Rainy',
+  mist: 'Mist',
+  clouds: 'Cloudy',
+  snow: 'Snowy',
 };

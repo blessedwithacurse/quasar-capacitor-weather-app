@@ -8,4 +8,9 @@ export default {
   weather: 'Погода',
   selectCity: 'Выбрать Город',
   switchLanguage: 'Переключить Язык',
+  clear: 'Ясно',
+  rain: 'Дожди',
+  mist: 'Туманно',
+  clouds: 'Облачно',
+  snow: 'Снег',
 };
